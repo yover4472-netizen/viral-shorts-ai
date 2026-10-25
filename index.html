@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViralShorts AI</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #09090f;
+      color: #f8fafc;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      border-bottom: 1px solid #272735;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #a78bfa;
+    }
+
+    .badge {
+      color: #86efac;
+      background: #14251d;
+      padding: 9px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 65px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      margin-bottom: 15px;
+    }
+
+    h1 span {
+      color: #a78bfa;
+    }
+
+    .description {
+      color: #a1a1b5;
+      line-height: 1.7;
+      margin-bottom: 35px;
+    }
+
+    .upload-box {
+      padding: 35px 20px;
+      border: 2px dashed #45405d;
+      border-radius: 20px;
+      background: #12121c;
+    }
+
+    .upload-icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    input[type="file"] {
+      display: block;
+      max-width: 100%;
+      margin: 22px auto;
+      color: #d4d4e5;
+    }
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 15px 23px;
+      background: #8b5cf6;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #7c3aed;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    #status {
+      margin-top: 20px;
+      color: #c4b5fd;
+      overflow-wrap: anywhere;
+      line-height: 1.6;
+    }
+
+    video {
+      width: 100%;
+      max-height: 380px;
+      margin-top: 20px;
+      border-radius: 12px;
+      background: black;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 35px;
+    }
+
+    .feature {
+      background: #14141f;
+      border: 1px solid #272735;
+      border-radius: 13px;
+      padding: 20px 10px;
+      color: #d4d4e5;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .feature strong {
+      display: block;
+      color: white;
+      margin-bottom: 7px;
+    }
+
+    .note {
+      margin-top: 25px;
+      font-size: 12px;
+      line-height: 1.7;
+      color: #85859b;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #85859b;
+      border-top: 1px solid #272735;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 18px;
+      }
+
+      main {
+        margin-top: 35px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Viral<span>Shorts</span> AI</div>
+    <div class="badge">✦ Ücretsiz kullanım hedefi</div>
+  </header>
+
+  <main>
+    <h1>Uzun videolardan <span>viral Shorts</span> üret</h1>
+
+    <p class="description">
+      Videonu seç. Yapay zekâ ile ilgi çekici anları belirlemeyi,
+      otomatik altyazı eklemeyi ve dikey kısa videolar oluşturmayı hedefliyoruz.
+    </p>
+
+    <section class="upload-box">
+      <div class="upload-icon">🎬</div>
+
+      <h2>Videonu buraya ekle</h2>
+
+      <p class="description">
+        MP4, MOV veya WebM formatındaki videonu seç.
+      </p>
+
+      <input
+        type="file"
+        id="videoInput"
+        accept="video/mp4,video/quicktime,video/webm,video/*"
+      >
+
+      <button id="startButton" disabled>
+        ✨ Shorts oluşturmaya başla
+      </button>
+
+      <div id="status" aria-live="polite">
+        Başlamak için bir video seç.
+      </div>
+
+      <video id="preview" controls hidden></video>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <strong>🤖 Akıllı analiz</strong>
+        İlgi çekici anları belirleme
+      </div>
+
+      <div class="feature">
+        <strong>💬 Otomatik altyazı</strong>
+        Konuşmalarla senkronize altyazılar
+      </div>
+
+      <div class="feature">
+        <strong>📱 Dikey videolar</strong>
+        YouTube Shorts ve Reels formatı
+      </div>
+    </section>
+
+    <p class="note">
+      İlk prototip aşamasındadır. Şu anda video yalnızca tarayıcıda
+      önizlenir. Yapay zekâ analizi, sunucuya yükleme ve video üretimi
+      henüz etkin değildir.
+    </p>
+  </main>
+
+  <footer>
+    ViralShorts AI · Ücretsiz yapay zekâ destekli video düzenleme projesi
+  </footer>
+
+  <script>
+    const input = document.getElementById("videoInput");
+    const button = document.getElementById("startButton");
+    const status = document.getElementById("status");
+    const preview = document.getElementById("preview");
+
+    let previewUrl = null;
+
+    input.addEventListener("change", () => {
+      const file = input.files[0];
+
+      button.disabled = !file;
+      preview.hidden = true;
+
+      if (previewUrl) {
+        URL.revokeObjectURL(previewUrl);
+        previewUrl = null;
+      }
+
+      if (!file) {
+        status.textContent = "Başlamak için bir video seç.";
+        return;
+      }
+
+      if (!file.type.startsWith("video/")) {
+        button.disabled = true;
+        status.textContent = "Lütfen geçerli bir video dosyası seç.";
+        input.value = "";
+        return;
+      }
+
+      previewUrl = URL.createObjectURL(file);
+      preview.src = previewUrl;
+      preview.hidden = false;
+
+      const sizeMB = (file.size / (1024 * 1024)).toFixed(1);
+
+      status.textContent =
+        `Seçilen dosya: ${file.name} · ${sizeMB} MB. ` +
+        "Video henüz sunucuya yüklenmedi.";
+
+      button.textContent = "✨ Shorts oluşturmayı dene";
+    });
+
+    button.addEventListener("click", () => {
+      status.textContent =
+        "Arayüz hazır! Bir sonraki geliştirme aşamasında " +
+        "ücretsiz yapay zekâ API'si ve video işleme sunucusu bağlanacak. " +
+        "Henüz gerçek video üretimi etkin değil.";
+    });
+  </script>
+
+</body>
+</html>
